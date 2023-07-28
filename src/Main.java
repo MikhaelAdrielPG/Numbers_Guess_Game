@@ -4,6 +4,10 @@ import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args) {
+        playTebakAngka();
+    }
+
+    public static void playTebakAngka() {
         Scanner masukan = new Scanner(System.in);
         Random acak = new Random();
 
@@ -55,14 +59,15 @@ public class Main {
                 masukan.next(); // Buang masukan yang tidak valid dari buffer
             }
 
-            // Cek apakah batas waktu sudah habis
-            long waktuSekarang = System.currentTimeMillis(); // untuk mengembalikan waktu (timestamp) dalam bentuk milidetik
+            // Cek apakah batas waktu sudah habis,  mengembalikan waktu (timestamp) dalam bentuk milidetik
+            long waktuSekarang = System.currentTimeMillis();
             if (waktuSekarang - waktuMulai >= batasWaktu) {
                 // Jika waktu sudah habis, program mengeset gameOver menjadi true
                 System.out.println("Waktu habis! Anda belum berhasil menebak angka " + angkaTebakan + ".");
                 gameOver = true;
             }
         }
+
         System.out.println();
         System.out.println("Terima kasih Telah bermain. Sampai jumpa!");
         masukan.close(); // close scanner
